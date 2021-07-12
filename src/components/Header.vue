@@ -1,5 +1,6 @@
 <template>
   <section>
+    <h1>boolflix</h1>
     <form>
       <input v-model="userInput" type="text" />
       <button @click.prevent="$emit('search', userInput)" type="submit">Search</button>
@@ -23,8 +24,14 @@ section {
   height: 100%;
   padding: 0 1vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+  }
 }
 
 form {
