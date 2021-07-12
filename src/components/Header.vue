@@ -2,7 +2,7 @@
   <section>
     <form>
       <input v-model="userInput" type="text" />
-      <button type="submit">Search</button>
+      <button @click.prevent="$emit('search', userInput)" type="submit">Search</button>
     </form>
   </section>
 </template>

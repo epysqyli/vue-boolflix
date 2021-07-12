@@ -1,6 +1,8 @@
 <template>
   <div>
-    <header><Header /></header>
+    <header>
+      <Header @search="searchMovies" />
+    </header>
     <div class="container">
       <div v-for="movie in movieData" :key="movie.id">
         <Movie :data="movie" />
@@ -27,20 +29,16 @@ export default {
     };
   },
   methods: {
-    async searchMovies() {
+    async searchMovies(userInput) {
       let resp = await fetch(
-        `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=potter`,
+        `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
         {
           mode: "cors",
         }
       );
       resp = await resp.json();
       this.movieData = resp.results;
-      console.log(this.movieData);
     },
-  },
-  mounted() {
-    this.searchMovies();
   },
 };
 </script>
@@ -48,7 +46,6 @@ export default {
 <style scoped lang="scss">
 header {
   height: 7vh;
-  border: 1px solid red;
 }
 
 .container {
