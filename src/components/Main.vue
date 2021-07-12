@@ -1,7 +1,11 @@
 <template>
   <div>
     <header><Header /></header>
-    <Movie />
+    <div class="container">
+      <div v-for="movie in movieData" :key="movie.id">
+        <Movie :data="movie" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,23 +23,25 @@ export default {
     return {
       apiKey: "3fede56bd77f08a65d287138f1c77073",
       searchMoviesUrl: "https://api.themoviedb.org/3/search/movie?",
+      movieData: [],
     };
   },
   methods: {
     async searchMovies() {
       let resp = await fetch(
-        `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=fast`,
+        `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=potter`,
         {
           mode: "cors",
         }
       );
       resp = await resp.json();
-      console.log(resp);
+      this.movieData = resp.results;
+      console.log(this.movieData);
     },
   },
   mounted() {
     this.searchMovies();
-  }
+  },
 };
 </script>
 
@@ -43,5 +49,13 @@ export default {
 header {
   height: 7vh;
   border: 1px solid red;
+}
+
+.container {
+  padding: 1vh 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 25px;
 }
 </style>
