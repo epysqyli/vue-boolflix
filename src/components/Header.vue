@@ -1,8 +1,9 @@
 <template>
   <section>
-    <div>
+    <form>
       <input v-model="userInput" type="text" />
-    </div>
+      <button type="submit">Search</button>
+    </form>
   </section>
 </template>
 
@@ -24,5 +25,15 @@ section {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+form {
+  display: flex;
+  gap: 1vw;
+
+  * {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+  }
 }
 </style>

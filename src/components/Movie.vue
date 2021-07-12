@@ -19,9 +19,13 @@ export default {
 <style scoped lang="scss">
 .movie-box {
   border: 1px solid black;
-  padding: 10px 20px;
-  width: 150px;
+  padding: 10px;
+  width: 200px;
   height: fit-content;
-  min-height: 275px;
+  min-height: 250px;
+
+  p {
+    margin-bottom: 1vh;
+  }
 }
 </style>
