@@ -54,11 +54,21 @@ form {
     transition: width 300ms;
     width: 200px;
     border: none;
+    border-radius: 5px;
 
     &:focus {
       outline: none;
       width: 300px;
       border: 2px solid red;
+    }
+  }
+
+  button {
+    border-radius: 5px;
+    border: 1px solid black;
+
+    &:hover {
+      box-shadow: 0 0 2px 1px red inset;
     }
   }
 }

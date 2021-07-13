@@ -52,7 +52,7 @@ header {
   padding: 1vh 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
   gap: 25px;
 }
 </style>
