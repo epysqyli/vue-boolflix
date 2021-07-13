@@ -44,5 +44,15 @@ form {
     padding: 5px 10px;
     font-size: 1.2rem;
   }
+
+  input {
+    width: 100px;
+    transition: width 300ms;
+
+    &:focus {
+      outline: none;
+      width: 250px;
+    }
+  }
 }
 </style>
