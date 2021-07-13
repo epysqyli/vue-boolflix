@@ -38,6 +38,7 @@ export default {
       );
       resp = await resp.json();
       this.movieData = resp.results;
+      console.log(resp.results);
     },
   },
 };
@@ -52,7 +53,7 @@ header {
   padding: 1vh 2vw;
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-evenly;
+  justify-content: center;
   gap: 25px;
 }
 </style>

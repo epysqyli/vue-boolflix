@@ -1,8 +1,14 @@
 <template>
   <div class="movie-box">
-    <p>Titolo: {{ data.title }}</p>
-    <p>Titolo Originale: {{ data.original_title }}</p>
-    <p>Lingua: {{ data.original_language }}</p>
+    <p>
+      Titolo:<br />
+      {{ data.title }}
+    </p>
+    <p>
+      Titolo Originale:<br />
+      {{ data.original_title }}
+    </p>
+    <p class="language">Lingua: <img src="../assets/en.png" alt="" /></p>
     <p>Voto: {{ data.vote_average }}</p>
   </div>
 </template>
@@ -26,6 +32,16 @@ export default {
 
   p {
     margin-bottom: 1vh;
+  }
+
+  .language {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 50px;
+    }
   }
 }
 </style>
