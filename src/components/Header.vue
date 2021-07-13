@@ -23,7 +23,6 @@ export default {
 
 <style scoped lang="scss">
 section {
-  height: 100%;
   padding: 0 1vw;
   display: flex;
   justify-content: space-between;
