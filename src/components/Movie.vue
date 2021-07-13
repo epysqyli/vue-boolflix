@@ -8,7 +8,13 @@
       <span>Titolo Originale:</span>
       {{ data.original_title }}
     </p>
-    <p class="language">Lingua: <img :src="require('../assets/' + data.original_language + '.png')" :alt="data.original_language" /></p>
+    <p class="language">
+      Lingua:
+      <img
+        :src="getFlag(data.original_language)"
+        :alt="data.original_language"
+      />
+    </p>
     <p>Voto: {{ data.vote_average }}</p>
   </div>
 </template>
@@ -18,6 +24,16 @@ export default {
   name: "Movie",
   props: {
     data: Object,
+  },
+  methods: {
+    getFlag(flagCode) {
+      try {
+        const path = require("../assets/" + flagCode + ".png");
+        return path;
+      } catch (error) {
+        return require("../assets/missing.png");
+      }
+    },
   },
 };
 </script>
