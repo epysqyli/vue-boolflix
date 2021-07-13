@@ -43,6 +43,7 @@ export default {
   background-color: rgba(105, 105, 105, 0.5);
   padding: 10px;
   margin: 1vh 0.5vw;
+  border-radius: 12px;
   width: 200px;
   height: fit-content;
   min-height: 275px;
