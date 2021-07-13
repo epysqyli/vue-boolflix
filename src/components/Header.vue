@@ -3,7 +3,9 @@
     <h1>boolflix</h1>
     <form>
       <input v-model="userInput" type="text" />
-      <button @click.prevent="$emit('search', userInput)" type="submit">Search</button>
+      <button @click.prevent="$emit('search', userInput)" type="submit">
+        Search
+      </button>
     </form>
   </section>
 </template>
