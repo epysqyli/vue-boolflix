@@ -1,14 +1,14 @@
 <template>
   <div class="movie-box">
     <p>
-      Titolo:<br />
+      <span>Titolo:</span>
       {{ data.title }}
     </p>
     <p>
-      Titolo Originale:<br />
+      <span>Titolo Originale:</span>
       {{ data.original_title }}
     </p>
-    <p class="language">Lingua: <img src="../assets/en.png" alt="" /></p>
+    <p class="language">Lingua: <img :src="require('../assets/' + data.original_language + '.png')" :alt="data.original_language" /></p>
     <p>Voto: {{ data.vote_average }}</p>
   </div>
 </template>
@@ -32,6 +32,11 @@ export default {
 
   p {
     margin-bottom: 1vh;
+    span {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
   }
 
   .language {
