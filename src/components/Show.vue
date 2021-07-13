@@ -2,20 +2,20 @@
   <div class="box">
     <p>
       <span>Titolo:</span>
-      {{ movieData.title }}
+      {{ showData.name }}
     </p>
     <p>
       <span>Titolo Originale:</span>
-      {{ movieData.original_title }}
+      {{ showData.original_name }}
     </p>
     <p class="language">
       Lingua:
       <img
-        :src="getFlag(movieData.original_language)"
-        :alt="movieData.original_language"
+        :src="getFlag(showData.original_language)"
+        :alt="showData.original_language"
       />
     </p>
-    <p>Voto: {{ movieData.vote_average }}</p>
+    <p>Voto: {{ showData.vote_average }}</p>
   </div>
 </template>
 
@@ -23,7 +23,7 @@
 export default {
   name: "Movie",
   props: {
-    movieData: Object,
+    showData: Object,
   },
   methods: {
     getFlag(flagCode) {
