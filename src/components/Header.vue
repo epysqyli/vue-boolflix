@@ -2,7 +2,11 @@
   <section>
     <h1>boolflix</h1>
     <form>
-      <input v-model="userInput" type="text" />
+      <input
+        v-model="userInput"
+        type="text"
+        placeholder="Cerca film e serie TV"
+      />
       <button @click.prevent="$emit('search', userInput)" type="submit">
         Search
       </button>
@@ -46,12 +50,15 @@ form {
   }
 
   input {
-    width: 100px;
+    width: fit-content;
     transition: width 300ms;
+    width: 200px;
+    border: none;
 
     &:focus {
       outline: none;
-      width: 250px;
+      width: 300px;
+      border: 2px solid red;
     }
   }
 }
