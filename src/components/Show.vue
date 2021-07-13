@@ -40,8 +40,9 @@ export default {
 
 <style scoped lang="scss">
 .box {
-  border: 1px solid black;
+  background-color: rgba(105, 105, 105, 0.5);
   padding: 10px;
+  margin: 1vh 0.5vw;
   width: 200px;
   height: fit-content;
   min-height: 275px;

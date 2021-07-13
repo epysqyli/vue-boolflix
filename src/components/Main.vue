@@ -56,7 +56,6 @@ export default {
       respShows = await respShows.json();
       this.moviesData = respMovies.results;
       this.showsData = respShows.results;
-      console.log(this.showsData);
     },
   },
 };
@@ -68,7 +67,7 @@ header {
 }
 
 .container {
-  padding: 1vh 2vw;
+  // padding: 1vh 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
