@@ -45,7 +45,6 @@ export default {
 
 <style scoped lang="scss">
 header {
-  // height: 7vh;
   background-color: black;
 }
 

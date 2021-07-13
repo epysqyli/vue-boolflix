@@ -1,9 +1,9 @@
 <template>
   <div class="movie-box">
-    <p>Titolo: {{ data.title }} </p>
-    <p>Titolo Originale: {{ data.original_title }} </p>
-    <p>Lingua: {{ data.original_language }} </p>
-    <p>Voto: {{ data.vote_average }} </p>
+    <p>Titolo: {{ data.title }}</p>
+    <p>Titolo Originale: {{ data.original_title }}</p>
+    <p>Lingua: {{ data.original_language }}</p>
+    <p>Voto: {{ data.vote_average }}</p>
   </div>
 </template>
 

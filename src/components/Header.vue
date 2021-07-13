@@ -33,6 +33,7 @@ section {
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: bold;
+    color: red;
   }
 }
 
