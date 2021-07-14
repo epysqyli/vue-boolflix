@@ -16,6 +16,9 @@
       />
     </p>
     <p>Voto: {{ movieData.vote_average }}</p>
+    <div class="poster">
+      <img :src="generateImage(movieData.poster_path)" alt="movie poster">
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,12 @@ export default {
   props: {
     movieData: Object,
   },
+  data() {
+    return {
+      imagePath: "https://image.tmdb.org/t/p/w185",
+    };
+  },
+
   methods: {
     getFlag(flagCode) {
       try {
@@ -33,6 +42,9 @@ export default {
       } catch (error) {
         return require("../assets/missing.png");
       }
+    },
+    generateImage(posterPath) {
+      return `${this.imagePath}${posterPath}`;
     },
   },
 };
@@ -64,6 +76,13 @@ export default {
 
     img {
       width: 50px;
+    }
+  }
+
+  .poster {
+    img {
+      display: block;
+      margin: auto;
     }
   }
 }
