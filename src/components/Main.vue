@@ -31,21 +31,25 @@ export default {
   },
   methods: {
     async searchMoviesAndShows(userInput) {
-      let respMovies = await fetch(
-        `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
-        {
-          mode: "cors",
-        }
-      );
-      let respShows = await fetch(
-        `${this.searchShowsUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
-        {
-          mode: "cors",
-        }
-      );
-      respMovies = await respMovies.json();
-      respShows = await respShows.json();
-      this.moviesAndShowsData = [...respMovies.results, ...respShows.results];
+      if (userInput) {
+        let respMovies = await fetch(
+          `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
+          {
+            mode: "cors",
+          }
+        );
+        let respShows = await fetch(
+          `${this.searchShowsUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
+          {
+            mode: "cors",
+          }
+        );
+        respMovies = await respMovies.json();
+        respShows = await respShows.json();
+        this.moviesAndShowsData = [...respMovies.results, ...respShows.results];
+      } else {
+        this.moviesAndShowsData = undefined;
+      }
     },
   },
 };
