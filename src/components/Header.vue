@@ -4,6 +4,7 @@
     <form>
       <input
         v-model="userInput"
+        @input="$emit('search', userInput)"
         type="text"
         placeholder="Cerca film e serie TV"
       />
