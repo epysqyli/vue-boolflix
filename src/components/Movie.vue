@@ -19,6 +19,9 @@
     </p>
 
     <p>Voto: {{ Math.round(movieData.vote_average / 2) }}</p>
+    <div>
+      <font-awesome-icon icon="star" />
+    </div>
 
     <div class="poster">
       <img :src="generateImage(movieData.poster_path)" alt="movie poster" />
