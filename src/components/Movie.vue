@@ -1,28 +1,33 @@
 <template>
   <div class="box">
-    <p>
-      <span>Titolo:</span>
-      {{ movieData.title || movieData.name }}
-    </p>
+    <div class="desc-data">
+      <p>
+        <span>Titolo:</span>
+        {{ movieData.title || movieData.name }}
+      </p>
 
-    <p>
-      <span>Titolo Originale:</span>
-      {{ movieData.original_title || movieData.original_name }}
-    </p>
+      <p>
+        <span>Titolo Originale:</span>
+        {{ movieData.original_title || movieData.original_name }}
+      </p>
 
-    <p class="language">
-      Lingua:
-      <img
-        :src="getFlag(movieData.original_language)"
-        :alt="movieData.original_language"
-      />
-    </p>
+      <p class="language">
+        Lingua:
+        <img
+          :src="getFlag(movieData.original_language)"
+          :alt="movieData.original_language"
+        />
+      </p>
 
-    <div class="vote">
-      <span>Voto:</span>
-      <div class="stars">
-        <div v-for="n in Math.round(movieData.vote_average / 2)" :key="n.id">
-          <font-awesome-icon icon="star" />
+      <div class="vote">
+        <span>Voto:</span>
+        <div class="stars" v-if="movieData.vote_average != 0">
+          <div v-for="n in Math.round(movieData.vote_average / 2)" :key="n.id">
+            <font-awesome-icon icon="star" />
+          </div>
+        </div>
+        <div class="stars" v-else>
+          <div> - </div>
         </div>
       </div>
     </div>
@@ -73,10 +78,10 @@ export default {
   border-radius: 12px;
   width: 200px;
   height: fit-content;
-  min-height: 600px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
   p {
     span {
@@ -86,7 +91,8 @@ export default {
     }
   }
 
-  .language {
+  .language,
+  .vote {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,11 +100,6 @@ export default {
     img {
       width: 50px;
     }
-  }
-
-  .vote {
-    display: flex;
-    justify-content: space-between;
 
     .stars {
       display: flex;
@@ -110,6 +111,7 @@ export default {
       display: block;
       margin: auto;
       width: 185px;
+      max-height: 275px;
     }
   }
 }
