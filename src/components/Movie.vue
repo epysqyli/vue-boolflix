@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="stars" v-else>
-          <div> - </div>
+          <div>-</div>
         </div>
       </div>
     </div>
