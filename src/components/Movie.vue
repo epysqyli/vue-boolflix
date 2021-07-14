@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="stars" v-else>
-          <div> - </div>
+          <div>-</div>
         </div>
       </div>
     </div>
@@ -53,8 +53,7 @@ export default {
   methods: {
     getFlag(flagCode) {
       try {
-        const path = require("../assets/" + flagCode + ".png");
-        return path;
+        return require("../assets/" + flagCode + ".png");
       } catch (error) {
         return require("../assets/missing.png");
       }
