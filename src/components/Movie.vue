@@ -53,7 +53,8 @@ export default {
   methods: {
     getFlag(flagCode) {
       try {
-        return require("../assets/" + flagCode + ".png");
+        const path = require("../assets/" + flagCode + ".png");
+        return path;
       } catch (error) {
         return require("../assets/missing.png");
       }
