@@ -4,10 +4,12 @@
       <span>Titolo:</span>
       {{ movieData.title || movieData.name }}
     </p>
+
     <p>
       <span>Titolo Originale:</span>
       {{ movieData.original_title || movieData.original_name }}
     </p>
+
     <p class="language">
       Lingua:
       <img
@@ -15,7 +17,9 @@
         :alt="movieData.original_language"
       />
     </p>
-    <p>Voto: {{ movieData.vote_average }}</p>
+
+    <p>Voto: {{ Math.round(movieData.vote_average / 2) }}</p>
+
     <div class="poster">
       <img :src="generateImage(movieData.poster_path)" alt="movie poster" />
     </div>
@@ -62,10 +66,12 @@ export default {
   border-radius: 12px;
   width: 200px;
   height: fit-content;
-  min-height: 275px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   p {
-    margin-bottom: 1vh;
     span {
       font-weight: bold;
       display: block;
