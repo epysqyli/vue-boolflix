@@ -4,14 +4,8 @@
       <Header @search="searchMoviesAndShows" />
     </header>
     <div class="container">
-      <div v-for="movie in moviesData" :key="movie.id">
+      <div v-for="movie in moviesAndShowsData" :key="movie.id">
         <Movie :movieData="movie" />
-      </div>
-    </div>
-
-    <div class="container">
-      <div v-for="show in showsData" :key="show.id">
-        <Show :showData="show" />
       </div>
     </div>
   </div>
@@ -20,14 +14,12 @@
 <script>
 import Header from "./Header.vue";
 import Movie from "./Movie.vue";
-import Show from "./Show.vue";
 
 export default {
   name: "Main",
   components: {
     Header,
     Movie,
-    Show,
   },
   data() {
     return {
@@ -36,6 +28,7 @@ export default {
       searchShowsUrl: "https://api.themoviedb.org/3/search/tv?",
       moviesData: [],
       showsData: [],
+      moviesAndShowsData: [],
     };
   },
   methods: {
@@ -56,6 +49,7 @@ export default {
       respShows = await respShows.json();
       this.moviesData = respMovies.results;
       this.showsData = respShows.results;
+      this.moviesAndShowsData = [...this.moviesData, ...this.showsData];
     },
   },
 };
@@ -67,7 +61,6 @@ header {
 }
 
 .container {
-  // padding: 1vh 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -2,11 +2,11 @@
   <div class="box">
     <p>
       <span>Titolo:</span>
-      {{ movieData.title }}
+      {{ movieData.title || movieData.name }}
     </p>
     <p>
       <span>Titolo Originale:</span>
-      {{ movieData.original_title }}
+      {{ movieData.original_title || movieData.original_name }}
     </p>
     <p class="language">
       Lingua:
