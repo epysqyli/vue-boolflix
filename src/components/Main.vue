@@ -26,8 +26,6 @@ export default {
       apiKey: "3fede56bd77f08a65d287138f1c77073",
       searchMoviesUrl: "https://api.themoviedb.org/3/search/movie?",
       searchShowsUrl: "https://api.themoviedb.org/3/search/tv?",
-      moviesData: [],
-      showsData: [],
       moviesAndShowsData: [],
     };
   },
@@ -47,9 +45,7 @@ export default {
       );
       respMovies = await respMovies.json();
       respShows = await respShows.json();
-      this.moviesData = respMovies.results;
-      this.showsData = respShows.results;
-      this.moviesAndShowsData = [...this.moviesData, ...this.showsData];
+      this.moviesAndShowsData = [...respMovies.results, ...respShows.results];
     },
   },
 };
