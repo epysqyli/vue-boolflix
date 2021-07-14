@@ -54,9 +54,12 @@ export default {
 <style scoped lang="scss">
 header {
   background-color: black;
+  position: fixed;
+  width: 100%;
 }
 
 .container {
+  padding-top: 10vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
