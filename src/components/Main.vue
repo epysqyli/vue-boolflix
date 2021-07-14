@@ -47,7 +47,6 @@ export default {
         respMovies = await respMovies.json();
         respShows = await respShows.json();
         this.moviesAndShowsData = [...respMovies.results, ...respShows.results];
-        console.log(this.moviesAndShowsData);
       } else {
         this.moviesAndShowsData = undefined;
       }

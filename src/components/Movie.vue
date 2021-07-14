@@ -17,7 +17,7 @@
     </p>
     <p>Voto: {{ movieData.vote_average }}</p>
     <div class="poster">
-      <img :src="generateImage(movieData.poster_path)" alt="movie poster">
+      <img :src="generateImage(movieData.poster_path)" alt="movie poster" />
     </div>
   </div>
 </template>
@@ -44,7 +44,11 @@ export default {
       }
     },
     generateImage(posterPath) {
-      return `${this.imagePath}${posterPath}`;
+      if (posterPath) {
+        return `${this.imagePath}${posterPath}`;
+      } else {
+        return require("../assets/missing_poster.png");
+      }
     },
   },
 };
@@ -83,6 +87,7 @@ export default {
     img {
       display: block;
       margin: auto;
+      width: 185px;
     }
   }
 }
