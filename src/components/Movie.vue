@@ -18,9 +18,13 @@
       />
     </p>
 
-    <p>Voto: {{ Math.round(movieData.vote_average / 2) }}</p>
-    <div>
-      <font-awesome-icon icon="star" />
+    <div class="vote">
+      <span>Voto:</span>
+      <div class="stars">
+        <div v-for="n in Math.round(movieData.vote_average / 2)" :key="n.id">
+          <font-awesome-icon icon="star" />
+        </div>
+      </div>
     </div>
 
     <div class="poster">
@@ -89,6 +93,15 @@ export default {
 
     img {
       width: 50px;
+    }
+  }
+
+  .vote {
+    display: flex;
+    justify-content: space-between;
+
+    .stars {
+      display: flex;
     }
   }
 
