@@ -50,6 +50,7 @@ export default {
       } else {
         this.moviesAndShowsData = undefined;
       }
+      console.log(this.moviesAndShowsData);
     },
   },
 };

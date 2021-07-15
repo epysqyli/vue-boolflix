@@ -8,9 +8,6 @@
         type="text"
         placeholder="Cerca film e serie TV"
       />
-      <button @click.prevent="$emit('search', userInput)" type="submit">
-        Search
-      </button>
     </form>
   </section>
 </template>
