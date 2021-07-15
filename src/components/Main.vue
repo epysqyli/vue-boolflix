@@ -32,24 +32,19 @@ export default {
   methods: {
     async searchMoviesAndShows(userInput) {
       if (userInput) {
-        let respMovies = await fetch(
-          `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
-          {
-            mode: "cors",
-          }
-        );
-        let respShows = await fetch(
-          `${this.searchShowsUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`,
-          {
-            mode: "cors",
-          }
-        );
-        respMovies = await respMovies.json();
-        respShows = await respShows.json();
-        this.moviesAndShowsData = [...respMovies.results, ...respShows.results];
+        const data = await Promise.all([
+          fetch(
+            `${this.searchMoviesUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`
+          ).then((resp) => resp.json()),
+          fetch(
+            `${this.searchShowsUrl}api_key=${this.apiKey}&language=it-IT&query=${userInput}`
+          ).then((resp) => resp.json()),
+        ]);
+        this.moviesAndShowsData = [...data[0].results, ...data[1].results];
       } else {
         this.moviesAndShowsData = undefined;
       }
+      console.log(this.moviesAndShowsData);
     },
   },
 };
