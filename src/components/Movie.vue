@@ -1,6 +1,6 @@
 <template>
-  <div class="box">
-    <div class="desc-data">
+  <div class="box" @mouseover="active = false" @mouseleave="active = true">
+    <div class="desc-data" v-show="active == false">
       <p>
         <span>Titolo:</span>
         {{ movieData.title || movieData.name }}
@@ -30,9 +30,11 @@
           <div>-</div>
         </div>
       </div>
+
+      <p class="overview">{{ movieData.overview }}</p>
     </div>
 
-    <div class="poster">
+    <div class="poster" v-show="active == true">
       <img :src="generateImage(movieData.poster_path)" alt="movie poster" />
     </div>
   </div>
@@ -46,7 +48,8 @@ export default {
   },
   data() {
     return {
-      imagePath: "https://image.tmdb.org/t/p/w185",
+      imagePath: "https://image.tmdb.org/t/p/w342",
+      active: true,
     };
   },
 
@@ -76,7 +79,7 @@ export default {
   padding: 10px;
   margin: 1vh 0.5vw;
   border-radius: 12px;
-  width: 200px;
+  width: 350px;
   height: fit-content;
   min-height: 550px;
   display: flex;
@@ -110,9 +113,13 @@ export default {
     img {
       display: block;
       margin: auto;
-      width: 185px;
-      max-height: 275px;
+      width: 342px;
+      // max-height: 275px;
     }
+  }
+
+  .overview {
+    text-align: justify;
   }
 }
 </style>
