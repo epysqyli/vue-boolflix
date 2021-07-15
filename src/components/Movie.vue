@@ -87,7 +87,6 @@ export default {
   transition: all 300ms;
 
   &:hover {
-    transform: scale(1.04);
     box-shadow: 0 0 5px 2px whitesmoke;
     padding: 10px;
     margin: 2vh 10px;
