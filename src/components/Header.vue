@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :class="{ narrow: !showNavbar }">
     <h1>boolflix</h1>
     <form>
       <input
@@ -18,7 +18,30 @@ export default {
   data() {
     return {
       userInput: "",
+      showNavbar: true,
+      lastScrollPos: 0,
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    // manage navbar height on scroll
+    onScroll() {
+      const currentPos =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentPos < 0) {
+        return;
+      }
+      if (Math.abs(currentPos - this.lastScrollPos) < 60) {
+        return;
+      }
+      this.showNavbar = currentPos < this.lastScrollPos;
+      this.lastScrollPos = currentPos;
+    },
   },
 };
 </script>
@@ -36,6 +59,10 @@ section {
     font-weight: bold;
     color: red;
   }
+}
+
+.narrow {
+  height: 50px;
 }
 
 form {
