@@ -65,6 +65,9 @@ section {
 
 .narrow {
   height: 50px;
+  h1 {
+    font-size: 1.5rem;
+  }
 }
 
 form {
