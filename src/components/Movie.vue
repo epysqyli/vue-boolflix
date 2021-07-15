@@ -1,6 +1,6 @@
 <template>
-  <div class="box" @mouseover="active = false" @mouseleave="active = true">
-    <div class="desc-data" v-show="active == false">
+  <div class="box" @mouseover="active = true" @mouseleave="active = false">
+    <div class="desc-data" v-show="active">
       <p>
         <span>Titolo:</span>
         {{ movieData.title || movieData.name }}
@@ -34,7 +34,7 @@
       <p class="overview">{{ movieData.overview }}</p>
     </div>
 
-    <div class="poster" v-show="active == true">
+    <div class="poster" v-show="!active">
       <img :src="generateImage(movieData.poster_path)" alt="movie poster" />
     </div>
   </div>
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       imagePath: "https://image.tmdb.org/t/p/w342",
-      active: true,
+      active: false,
     };
   },
 
