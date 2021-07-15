@@ -2,11 +2,10 @@
   <div class="box" @mouseover="active = true" @mouseleave="active = false">
     <div class="desc-data" v-show="active">
       <p>
-        <span>Titolo:</span>
         {{ movieData.title || movieData.name }}
       </p>
 
-      <p>
+      <p class="original-title">
         <span>Titolo Originale:</span>
         {{ movieData.original_title || movieData.original_name }}
       </p>
@@ -79,9 +78,8 @@ export default {
   padding: 10px;
   margin: 1vh 0.5vw;
   border-radius: 12px;
-  width: 350px;
-  height: fit-content;
-  min-height: 550px;
+  width: 345px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -92,6 +90,10 @@ export default {
       display: block;
       margin-bottom: 5px;
     }
+  }
+
+  .original-title {
+    font-size: 0.9rem;
   }
 
   .language,
@@ -112,14 +114,18 @@ export default {
   .poster {
     img {
       display: block;
+      border-radius: 10px;
       margin: auto;
       width: 342px;
-      // max-height: 275px;
+      max-height: 500px;
+      object-fit: cover;
     }
   }
 
   .overview {
     text-align: justify;
+    font-size: 0.9rem;
+    margin-top: 25px;
   }
 }
 </style>
