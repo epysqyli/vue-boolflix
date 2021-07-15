@@ -75,7 +75,8 @@ export default {
 <style scoped lang="scss">
 .box {
   background-color: rgba(105, 105, 105, 0.5);
-  padding: 10px;
+  box-shadow: 0 0 2px 2px white inset;
+  padding: 3px;
   margin: 1vh 0.5vw;
   border-radius: 12px;
   width: 345px;
@@ -83,11 +84,13 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 300ms;
+  transition: all 300ms;
 
   &:hover {
     transform: scale(1.04);
     box-shadow: 0 0 5px 2px whitesmoke;
+    padding: 10px;
+    margin: 2vh 10px;
   }
 
   .title {
