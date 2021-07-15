@@ -79,7 +79,7 @@ export default {
   padding: 3px;
   margin: 1vh 0.5vw;
   border-radius: 12px;
-  width: 345px;
+  width: 342px;
   min-height: 500px;
   display: flex;
   flex-direction: column;
