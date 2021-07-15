@@ -63,7 +63,7 @@ header {
 }
 
 .container {
-  padding-top: 10vh;
+  padding-top: 12vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

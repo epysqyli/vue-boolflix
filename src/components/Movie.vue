@@ -1,33 +1,26 @@
 <template>
   <div class="box" @mouseover="active = true" @mouseleave="active = false">
     <div class="desc-data" v-show="active">
-      <p>
+      <p class="title">
         {{ movieData.title || movieData.name }}
       </p>
 
       <p class="original-title">
         <span>Titolo Originale:</span>
-        {{ movieData.original_title || movieData.original_name }}
+        <span>{{ movieData.original_title || movieData.original_name }}</span>
       </p>
 
-      <p class="language">
-        Lingua:
+      <div class="additional-info">
         <img
           :src="getFlag(movieData.original_language)"
           :alt="movieData.original_language"
         />
-      </p>
-
-      <div class="vote">
-        <span>Voto:</span>
-        <div class="stars" v-if="movieData.vote_average != 0">
+        <div class="stars" v-if="movieData.average_vote != 0">
           <div v-for="n in Math.round(movieData.vote_average / 2)" :key="n.id">
             <font-awesome-icon icon="star" />
           </div>
         </div>
-        <div class="stars" v-else>
-          <div>-</div>
-        </div>
+        <div class="stars" v-else>-</div>
       </div>
 
       <p class="overview">{{ movieData.overview }}</p>
@@ -83,32 +76,43 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 300ms;
 
-  p {
-    span {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
-    }
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 5px 2px whitesmoke;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    font-family: monospace;
   }
 
   .original-title {
     font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(225, 225, 225);
   }
 
-  .language,
-  .vote {
+  .additional-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     img {
-      width: 50px;
+      width: 100px;
     }
+  }
 
-    .stars {
-      display: flex;
-    }
+  .stars {
+    display: flex;
+    color: white;
+    gap: 5px;
   }
 
   .poster {
@@ -125,7 +129,7 @@ export default {
   .overview {
     text-align: justify;
     font-size: 0.9rem;
-    margin-top: 25px;
+    color: rgb(225, 225, 225);
   }
 }
 </style>
