@@ -1,5 +1,5 @@
 <template>
-  <section :class="{ narrow: narrowNavbar }">
+  <section :class="{ narrow: narrowNavbar }" class="header">
     <h1>boolflix</h1>
     <form>
       <input
@@ -60,6 +60,11 @@ section {
     color: red;
   }
 }
+
+.header {
+  height: 100px;
+  transition: 100ms ease all;
+} 
 
 .narrow {
   height: 50px;
