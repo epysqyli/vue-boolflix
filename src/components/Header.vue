@@ -1,5 +1,5 @@
 <template>
-  <section :class="{ narrow: !showNavbar }">
+  <section :class="{ narrow: narrowNavbar }">
     <h1>boolflix</h1>
     <form>
       <input
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       userInput: "",
-      showNavbar: true,
+      narrowNavbar: false,
       lastScrollPos: 0,
     };
   },
@@ -39,7 +39,7 @@ export default {
       if (Math.abs(currentPos - this.lastScrollPos) < 60) {
         return;
       }
-      this.showNavbar = currentPos < this.lastScrollPos;
+      this.narrowNavbar = currentPos > this.lastScrollPos;
       this.lastScrollPos = currentPos;
     },
   },
