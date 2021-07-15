@@ -53,7 +53,7 @@ section {
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  transition: 100ms ease all;
+  transition: 300ms ease all;
 
   h1 {
     text-transform: uppercase;
@@ -68,6 +68,7 @@ section {
   h1 {
     font-size: 1.5rem;
   }
+  opacity: 0.7;
 }
 
 form {
