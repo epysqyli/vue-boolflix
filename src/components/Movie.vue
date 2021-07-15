@@ -15,12 +15,19 @@
           :src="getFlag(movieData.original_language)"
           :alt="movieData.original_language"
         />
-        <div class="stars" v-if="movieData.average_vote != 0">
-          <div v-for="n in Math.round(movieData.vote_average / 2)" :key="n.id">
-            <font-awesome-icon icon="star" />
-          </div>
+        <div class="stars">
+          <template v-if="movieData.vote_average != 0">
+            <div
+              v-for="n in Math.round(movieData.vote_average / 2)"
+              :key="n.id"
+            >
+              <font-awesome-icon icon="star" />
+            </div>
+          </template>
+          <template v-else>
+            <div> - </div>
+          </template>
         </div>
-        <div class="stars" v-else>-</div>
       </div>
 
       <p class="overview">{{ movieData.overview }}</p>
