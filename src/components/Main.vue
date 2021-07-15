@@ -60,6 +60,7 @@ header {
   background-color: black;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .container {
@@ -68,5 +69,6 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
+  z-index: 0;
 }
 </style>
