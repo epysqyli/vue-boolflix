@@ -85,12 +85,22 @@ form {
     transition: width 300ms;
     width: 200px;
     border: none;
-    border-radius: 5px;
+    border-bottom: 1px solid red;
+    background-color: black;
+    color: white;
 
     &:focus {
       outline: none;
       width: 300px;
-      border: 2px solid red;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    &::placeholder {
+      color: gray;
+      font-size: 1.1rem;
     }
   }
 
